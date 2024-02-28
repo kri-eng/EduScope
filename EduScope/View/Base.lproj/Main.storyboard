@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,11 +67,53 @@
                         <outlet property="appNameLabel" destination="udW-F2-XKP" id="AWI-ut-9sa"/>
                         <outlet property="iconImage" destination="Se3-gy-loH" id="iH1-5h-KxQ"/>
                         <outlet property="searchButton" destination="Eha-9V-4gd" id="mMH-h8-pop"/>
+                        <segue destination="0MM-5A-6nJ" kind="push" identifier="introToMainSegue" id="vyu-Ln-aYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.7251908396945" y="-34.507042253521128"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="yxl-mG-Wj3">
+            <objects>
+                <viewController id="0MM-5A-6nJ" customClass="MainViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YsP-sy-RpT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-dP-tXz">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reusableCell" id="xX9-TC-qg7">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xX9-TC-qg7" id="DGl-1i-wV1">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xrk-9H-o9I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yld-dP-tXz" firstAttribute="trailing" secondItem="xrk-9H-o9I" secondAttribute="trailing" id="8ZJ-Er-FgA"/>
+                            <constraint firstItem="Yld-dP-tXz" firstAttribute="bottom" secondItem="xrk-9H-o9I" secondAttribute="bottom" id="HVS-Nw-avl"/>
+                            <constraint firstItem="Yld-dP-tXz" firstAttribute="top" secondItem="xrk-9H-o9I" secondAttribute="top" id="kFy-y1-xPK"/>
+                            <constraint firstItem="Yld-dP-tXz" firstAttribute="leading" secondItem="xrk-9H-o9I" secondAttribute="leading" id="wr2-DW-Ugk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="5W8-Je-tmB"/>
+                    <connections>
+                        <outlet property="tableView" destination="Yld-dP-tXz" id="Wjq-pf-Cyd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFT-ug-Hkx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991.6030534351144" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Je-KM-mSl">
@@ -94,5 +137,8 @@
     <resources>
         <image name="EduScope-black" width="341.33334350585938" height="341.33334350585938"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

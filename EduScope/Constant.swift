@@ -10,5 +10,6 @@ import Foundation
 struct Constant {
     
     static let appName: String = "EduScope"
-    
+    static let mainSegue: String = "introToMainSegue"
+    static let cellIdentifier: String = "reusableCell"
 }

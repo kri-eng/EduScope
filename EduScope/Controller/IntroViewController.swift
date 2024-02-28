@@ -23,8 +23,7 @@ class IntroViewController: UIViewController {
 
     @IBAction func searchPressed(_ sender: UIButton) {
         // Perform the Segue
-        
-        print("Search Button Pressed")
+        performSegue(withIdentifier: Constant.mainSegue, sender: self)
     }
     
     // MARK: - Animation Functions

@@ -9,13 +9,15 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mainNavigationItem: UINavigationItem!
     
     var schoolData: [SchoolData] = []
     var filterSchoolData: [SchoolData] = []
     var dataManager = DataManager()
     var currentSchoolData: SchoolData?
+    
+    let search = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +26,13 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         dataManager.delegate = self
-        searchBar.delegate = self
+        
+        search.delegate = self
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
         
         // Set up custom TableViewCell
         tableView.register(UINib(nibName: Constant.cellNibName, bundle: nil), forCellReuseIdentifier: Constant.cellIdentifier)
-        
         
         // Get the Data
         dataManager.fetchSchoolData()
@@ -96,6 +100,15 @@ extension MainViewController: DataManagerDelegate {
 }
 
 
+// MARK: - UISearchControllerDelegate
+extension MainViewController: UISearchControllerDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        tableView.reloadData()
+    }
+}
+
+
 // MARK: - UISearchBarDelegate
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -107,7 +120,7 @@ extension MainViewController: UISearchBarDelegate {
     }
     
     func searchBarIsEmpty() -> Bool {
-        return searchBar.text?.isEmpty ?? true
+        return search.searchBar.text?.isEmpty ?? true
     }
 }
 

@@ -82,36 +82,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Y3U-mt-QBJ">
-                                <rect key="frame" x="0.0" y="103" width="393" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="mgj-L2-9gn"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="0MM-5A-6nJ" id="cQn-qI-RzF"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XtX-TJ-DV8">
-                                <rect key="frame" x="0.0" y="148" width="393" height="704"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xrk-9H-o9I"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XtX-TJ-DV8" firstAttribute="top" secondItem="Y3U-mt-QBJ" secondAttribute="bottom" id="Eg4-bp-DGW"/>
-                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="trailing" secondItem="xrk-9H-o9I" secondAttribute="trailing" id="VDc-nD-por"/>
+                            <constraint firstItem="XtX-TJ-DV8" firstAttribute="top" secondItem="xrk-9H-o9I" secondAttribute="top" id="FYF-C3-rxX"/>
                             <constraint firstItem="XtX-TJ-DV8" firstAttribute="leading" secondItem="YsP-sy-RpT" secondAttribute="leading" id="doH-Pa-9md"/>
                             <constraint firstAttribute="trailing" secondItem="XtX-TJ-DV8" secondAttribute="trailing" id="juV-Xf-JTk"/>
-                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="leading" secondItem="xrk-9H-o9I" secondAttribute="leading" id="pV5-Yh-fty"/>
-                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="top" secondItem="xrk-9H-o9I" secondAttribute="top" id="rTg-rX-c8a"/>
                             <constraint firstAttribute="bottom" secondItem="XtX-TJ-DV8" secondAttribute="bottom" id="zue-c7-heB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="EduScope" id="5W8-Je-tmB"/>
                     <connections>
-                        <outlet property="searchBar" destination="Y3U-mt-QBJ" id="pF4-Ba-oDN"/>
+                        <outlet property="mainNavigationItem" destination="5W8-Je-tmB" id="5EH-ZX-rGX"/>
                         <outlet property="tableView" destination="XtX-TJ-DV8" id="4gv-cx-il4"/>
                         <segue destination="p88-q7-8Vw" kind="presentation" identifier="mainToDetailSegue" id="GLR-fd-vwW"/>
                     </connections>

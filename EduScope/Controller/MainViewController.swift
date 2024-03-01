@@ -10,12 +10,15 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mainNavigationItem: UINavigationItem!
     
     var schoolData: [SchoolData] = []
+    var schoolSATData: [SchoolSATData] = []
     var filterSchoolData: [SchoolData] = []
+    
     var dataManager = DataManager()
+    
     var currentSchoolData: SchoolData?
+    var currentSchoolSATData: SchoolSATData?
     
     let search = UISearchController(searchResultsController: nil)
     
@@ -27,6 +30,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         dataManager.delegate = self
         
+        // Add Search Delegates and Search Bar to Navigation Item
         search.delegate = self
         search.searchBar.delegate = self
         self.navigationItem.searchController = search
@@ -36,13 +40,16 @@ class MainViewController: UIViewController {
         
         // Get the Data
         dataManager.fetchSchoolData()
+        dataManager.fetchSchoolSATData()
     }
     
+    // Prepares variables for segue.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.detailsSegue {
             if let safeCurrentSchoolData = currentSchoolData {
                 let destinationVC = segue.destination as! DetailsViewController
-                destinationVC.schoolName = safeCurrentSchoolData.school_name
+                destinationVC.school = safeCurrentSchoolData
+                destinationVC.schoolSAT = currentSchoolSATData
             }
         }
     }
@@ -76,15 +83,29 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     
+    // Selected Row Delegate.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if searchBarIsEmpty() {
             currentSchoolData = schoolData[indexPath.row]
         } else {
             currentSchoolData = filterSchoolData[indexPath.row]
         }
         
+        // Find the Element in the schoolSATData
+        currentSchoolSATData = searchCurrentSAT()
         performSegue(withIdentifier: Constant.detailsSegue, sender: self)
+    }
+    
+    // Fucntion to Search for the current SAT Data.
+    func searchCurrentSAT() -> SchoolSATData? {
+        if let currentSchoolDBN = currentSchoolData?.dbn {
+            for element in schoolSATData {
+                if element.dbn == currentSchoolDBN {
+                    return element
+                }
+            }
+        }
+        return nil
     }
 }
 
@@ -96,6 +117,10 @@ extension MainViewController: DataManagerDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func didUpdateSATData(_ schoolSATData: [SchoolSATData]) {
+        self.schoolSATData = schoolSATData
     }
 }
 

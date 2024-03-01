@@ -20,6 +20,13 @@
 		71844DA92B90093800D43FFE /* SchoolDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71844DA72B90093800D43FFE /* SchoolDataTableViewCell.swift */; };
 		71844DAA2B90093800D43FFE /* SchoolDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71844DA82B90093800D43FFE /* SchoolDataTableViewCell.xib */; };
 		71844DAC2B90325100D43FFE /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71844DAB2B90325100D43FFE /* DetailsViewController.swift */; };
+		71A41D782B91E29800C9E83D /* TopInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D762B91E29800C9E83D /* TopInfoTableViewCell.swift */; };
+		71A41D792B91E29800C9E83D /* TopInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A41D772B91E29800C9E83D /* TopInfoTableViewCell.xib */; };
+		71A41D7C2B91E9A500C9E83D /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D7A2B91E9A500C9E83D /* OverviewTableViewCell.swift */; };
+		71A41D7D2B91E9A500C9E83D /* OverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A41D7B2B91E9A500C9E83D /* OverviewTableViewCell.xib */; };
+		71A41D832B92684E00C9E83D /* SchoolSATData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D822B92684E00C9E83D /* SchoolSATData.swift */; };
+		71A41D862B926F7200C9E83D /* SatScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A41D842B926F7200C9E83D /* SatScoresTableViewCell.swift */; };
+		71A41D872B926F7200C9E83D /* SatScoresTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A41D852B926F7200C9E83D /* SatScoresTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,13 @@
 		71844DA72B90093800D43FFE /* SchoolDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDataTableViewCell.swift; sourceTree = "<group>"; };
 		71844DA82B90093800D43FFE /* SchoolDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SchoolDataTableViewCell.xib; sourceTree = "<group>"; };
 		71844DAB2B90325100D43FFE /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		71A41D762B91E29800C9E83D /* TopInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoTableViewCell.swift; sourceTree = "<group>"; };
+		71A41D772B91E29800C9E83D /* TopInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopInfoTableViewCell.xib; sourceTree = "<group>"; };
+		71A41D7A2B91E9A500C9E83D /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		71A41D7B2B91E9A500C9E83D /* OverviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverviewTableViewCell.xib; sourceTree = "<group>"; };
+		71A41D822B92684E00C9E83D /* SchoolSATData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSATData.swift; sourceTree = "<group>"; };
+		71A41D842B926F7200C9E83D /* SatScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatScoresTableViewCell.swift; sourceTree = "<group>"; };
+		71A41D852B926F7200C9E83D /* SatScoresTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SatScoresTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +103,12 @@
 				71844D932B8FED4700D43FFE /* LaunchScreen.storyboard */,
 				71844DA72B90093800D43FFE /* SchoolDataTableViewCell.swift */,
 				71844DA82B90093800D43FFE /* SchoolDataTableViewCell.xib */,
+				71A41D762B91E29800C9E83D /* TopInfoTableViewCell.swift */,
+				71A41D772B91E29800C9E83D /* TopInfoTableViewCell.xib */,
+				71A41D7A2B91E9A500C9E83D /* OverviewTableViewCell.swift */,
+				71A41D7B2B91E9A500C9E83D /* OverviewTableViewCell.xib */,
+				71A41D842B926F7200C9E83D /* SatScoresTableViewCell.swift */,
+				71A41D852B926F7200C9E83D /* SatScoresTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +126,7 @@
 		71844DA02B8FF42300D43FFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71A41D822B92684E00C9E83D /* SchoolSATData.swift */,
 				71844DA12B8FF54300D43FFE /* SchoolData.swift */,
 				71844DA32B8FF56000D43FFE /* DataManager.swift */,
 			);
@@ -172,7 +193,10 @@
 			files = (
 				71844D952B8FED4700D43FFE /* LaunchScreen.storyboard in Resources */,
 				71844DAA2B90093800D43FFE /* SchoolDataTableViewCell.xib in Resources */,
+				71A41D7D2B91E9A500C9E83D /* OverviewTableViewCell.xib in Resources */,
 				71844D922B8FED4700D43FFE /* Assets.xcassets in Resources */,
+				71A41D792B91E29800C9E83D /* TopInfoTableViewCell.xib in Resources */,
+				71A41D872B926F7200C9E83D /* SatScoresTableViewCell.xib in Resources */,
 				71844D902B8FED4600D43FFE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,7 +208,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A41D7C2B91E9A500C9E83D /* OverviewTableViewCell.swift in Sources */,
 				71844DA62B8FF60900D43FFE /* MainViewController.swift in Sources */,
+				71A41D782B91E29800C9E83D /* TopInfoTableViewCell.swift in Sources */,
 				71844D8D2B8FED4600D43FFE /* IntroViewController.swift in Sources */,
 				71844DAC2B90325100D43FFE /* DetailsViewController.swift in Sources */,
 				71844DA42B8FF56000D43FFE /* DataManager.swift in Sources */,
@@ -192,7 +218,9 @@
 				71844D8B2B8FED4600D43FFE /* SceneDelegate.swift in Sources */,
 				71844DA92B90093800D43FFE /* SchoolDataTableViewCell.swift in Sources */,
 				71844DA22B8FF54300D43FFE /* SchoolData.swift in Sources */,
+				71A41D832B92684E00C9E83D /* SchoolSATData.swift in Sources */,
 				71844D9D2B8FF25900D43FFE /* Constant.swift in Sources */,
+				71A41D862B926F7200C9E83D /* SatScoresTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

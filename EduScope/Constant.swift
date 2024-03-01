@@ -17,4 +17,15 @@ struct Constant {
     static let cellIdentifier: String = "reusableCell"
     static let cellNibName: String = "SchoolDataTableViewCell"
     
+    static let topInfoCellIdentifier: String = "topInfoTableViewCell"
+    static let topInfoCellNibName: String = "TopInfoTableViewCell"
+    
+    static let overviewCellIdentifier: String = "overviewTableViewCell"
+    static let overviewCellNibName: String = "OverviewTableViewCell"
+    
+    static let contactInfoCellIdentifier: String = "contactInfoTableViewCell"
+    static let contactInfoCellNibName: String = "ContactInfoTableViewCell"
+    
+    static let satScoresCellIdentifier: String = "satScoresTableViewCell"
+    static let satScoresCellNibName: String = "SatScoresTableViewCell"
 }

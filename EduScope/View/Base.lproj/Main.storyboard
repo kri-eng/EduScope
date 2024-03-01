@@ -56,7 +56,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.97647058823529409" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="PZQ-qk-XZP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zkq-lk-WqZ"/>
                             <constraint firstItem="PZQ-qk-XZP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="t89-gw-Ve1"/>
@@ -98,7 +98,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="EduScope" id="5W8-Je-tmB"/>
                     <connections>
-                        <outlet property="mainNavigationItem" destination="5W8-Je-tmB" id="5EH-ZX-rGX"/>
                         <outlet property="tableView" destination="XtX-TJ-DV8" id="4gv-cx-il4"/>
                         <segue destination="p88-q7-8Vw" kind="presentation" identifier="mainToDetailSegue" id="GLR-fd-vwW"/>
                     </connections>
@@ -115,19 +114,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK0-ci-FAK">
-                                <rect key="frame" x="131" y="381" width="130" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pNy-GN-ppf">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ViU-WG-q3Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pNy-GN-ppf" firstAttribute="leading" secondItem="KrV-Dx-asd" secondAttribute="leading" id="6AZ-6l-Clb"/>
+                            <constraint firstItem="pNy-GN-ppf" firstAttribute="top" secondItem="KrV-Dx-asd" secondAttribute="top" id="J7Z-HJ-121"/>
+                            <constraint firstAttribute="bottom" secondItem="pNy-GN-ppf" secondAttribute="bottom" id="LXf-lK-cv9"/>
+                            <constraint firstAttribute="trailing" secondItem="pNy-GN-ppf" secondAttribute="trailing" id="zhG-tZ-ZCm"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="schoolNameLabel" destination="dK0-ci-FAK" id="xAg-7k-5BG"/>
+                        <outlet property="detailsTableView" destination="pNy-GN-ppf" id="TBO-2g-jbB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMo-35-kLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

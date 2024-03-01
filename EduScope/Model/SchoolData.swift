@@ -11,4 +11,8 @@ struct SchoolData: Codable {
     let dbn: String
     let school_name: String
     let city: String
+    let overview_paragraph: String
+    let location: String
+    let phone_number: String
+    let website: String
 }

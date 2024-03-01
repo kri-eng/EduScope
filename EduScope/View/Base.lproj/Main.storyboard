@@ -43,7 +43,7 @@
                                             <constraint firstAttribute="height" constant="50" id="3dY-ah-5rg"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="magnifyingglass.circle.fill" catalog="system" imagePlacement="trailing" title="Button" imagePadding="10" cornerStyle="large">
+                                        <buttonConfiguration key="configuration" style="filled" image="magnifyingglass.circle.fill" catalog="system" imagePlacement="trailing" title="Search" imagePadding="10" cornerStyle="large">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1055.7251908396945" y="-34.507042253521128"/>
         </scene>
-        <!--Main View Controller-->
+        <!--EduScope-->
         <scene sceneID="yxl-mG-Wj3">
             <objects>
                 <viewController id="0MM-5A-6nJ" customClass="MainViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,38 +82,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-dP-tXz">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Y3U-mt-QBJ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="mgj-L2-9gn"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0MM-5A-6nJ" id="cQn-qI-RzF"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XtX-TJ-DV8">
+                                <rect key="frame" x="0.0" y="148" width="393" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reusableCell" id="xX9-TC-qg7">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xX9-TC-qg7" id="DGl-1i-wV1">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xrk-9H-o9I"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Yld-dP-tXz" firstAttribute="trailing" secondItem="xrk-9H-o9I" secondAttribute="trailing" id="8ZJ-Er-FgA"/>
-                            <constraint firstItem="Yld-dP-tXz" firstAttribute="bottom" secondItem="xrk-9H-o9I" secondAttribute="bottom" id="HVS-Nw-avl"/>
-                            <constraint firstItem="Yld-dP-tXz" firstAttribute="top" secondItem="xrk-9H-o9I" secondAttribute="top" id="kFy-y1-xPK"/>
-                            <constraint firstItem="Yld-dP-tXz" firstAttribute="leading" secondItem="xrk-9H-o9I" secondAttribute="leading" id="wr2-DW-Ugk"/>
+                            <constraint firstItem="XtX-TJ-DV8" firstAttribute="top" secondItem="Y3U-mt-QBJ" secondAttribute="bottom" id="Eg4-bp-DGW"/>
+                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="trailing" secondItem="xrk-9H-o9I" secondAttribute="trailing" id="VDc-nD-por"/>
+                            <constraint firstItem="XtX-TJ-DV8" firstAttribute="leading" secondItem="YsP-sy-RpT" secondAttribute="leading" id="doH-Pa-9md"/>
+                            <constraint firstAttribute="trailing" secondItem="XtX-TJ-DV8" secondAttribute="trailing" id="juV-Xf-JTk"/>
+                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="leading" secondItem="xrk-9H-o9I" secondAttribute="leading" id="pV5-Yh-fty"/>
+                            <constraint firstItem="Y3U-mt-QBJ" firstAttribute="top" secondItem="xrk-9H-o9I" secondAttribute="top" id="rTg-rX-c8a"/>
+                            <constraint firstAttribute="bottom" secondItem="XtX-TJ-DV8" secondAttribute="bottom" id="zue-c7-heB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5W8-Je-tmB"/>
+                    <navigationItem key="navigationItem" title="EduScope" id="5W8-Je-tmB"/>
                     <connections>
-                        <outlet property="tableView" destination="Yld-dP-tXz" id="Wjq-pf-Cyd"/>
+                        <outlet property="searchBar" destination="Y3U-mt-QBJ" id="pF4-Ba-oDN"/>
+                        <outlet property="tableView" destination="XtX-TJ-DV8" id="4gv-cx-il4"/>
+                        <segue destination="p88-q7-8Vw" kind="presentation" identifier="mainToDetailSegue" id="GLR-fd-vwW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFT-ug-Hkx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1991.6030534351144" y="-35.211267605633807"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="D7m-2G-D1h">
+            <objects>
+                <viewController id="p88-q7-8Vw" customClass="DetailsViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KrV-Dx-asd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK0-ci-FAK">
+                                <rect key="frame" x="131" y="381" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ViU-WG-q3Z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="schoolNameLabel" destination="dK0-ci-FAK" id="xAg-7k-5BG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMo-35-kLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2812.9770992366412" y="-35.211267605633807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Je-KM-mSl">

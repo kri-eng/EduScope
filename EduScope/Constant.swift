@@ -10,6 +10,11 @@ import Foundation
 struct Constant {
     
     static let appName: String = "EduScope"
+    
     static let mainSegue: String = "introToMainSegue"
+    static let detailsSegue: String = "mainToDetailSegue"
+    
     static let cellIdentifier: String = "reusableCell"
+    static let cellNibName: String = "SchoolDataTableViewCell"
+    
 }

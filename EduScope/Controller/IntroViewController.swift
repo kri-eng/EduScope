@@ -37,7 +37,7 @@ class IntroViewController: UIViewController {
         let title = Constant.appName
         var charIndex = 0.0
         for letter in title {
-            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { timer in
+            Timer.scheduledTimer(withTimeInterval: 0.15 * charIndex, repeats: false) { timer in
                 self.appNameLabel.text?.append(letter)
                 if letter == Constant.appName.last {
                     self.searchButtonFadeOutTransition()

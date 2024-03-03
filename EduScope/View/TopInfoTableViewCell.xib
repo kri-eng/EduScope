@@ -60,6 +60,9 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="webPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ga2-VJ-oOY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u55-bE-cFC">
                                                 <rect key="frame" x="122.66666666666664" y="0.0" width="61.333333333333329" height="43.666666666666664"/>
@@ -68,6 +71,9 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="mapPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4YX-6F-haq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

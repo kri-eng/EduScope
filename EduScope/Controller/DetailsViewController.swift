@@ -28,8 +28,21 @@ class DetailsViewController: UIViewController {
         detailsTableView.register(UINib(nibName: Constant.overviewCellNibName, bundle: nil), forCellReuseIdentifier: Constant.overviewCellIdentifier)
         detailsTableView.register(UINib(nibName: Constant.satScoresCellNibName, bundle: nil), forCellReuseIdentifier: Constant.satScoresCellIdentifier)
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.mapSegue {
+            let destinationVC = segue.destination as! MapScreenViewController
+            destinationVC.latitudeString = school?.latitude
+            destinationVC.longitudeString = school?.longitude
+        } else {
+            let destinationVC = segue.destination as! WebViewViewController
+            destinationVC.webURL = school?.website
+        }
+    }
 }
 
+// MARK: - UITableViewDataSource
 extension DetailsViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,7 +61,7 @@ extension DetailsViewController: UITableViewDataSource {
             if let safeSchool = school {
                 cell.schoolNameLabel.text = safeSchool.school_name
                 cell.cityLabel.text = safeSchool.city
-                cell.phoneNumber = safeSchool.phone_number
+                cell.delegate = self
             }
             
             cell.selectionStyle = .none
@@ -83,7 +96,33 @@ extension DetailsViewController: UITableViewDataSource {
     }
 }
 
-
+//MARK: - TopInfoTableViewCellDelegate
+extension DetailsViewController: TopInfoTableViewCellDelegate {
+    
+    func mapButtonPressed() {
+        // Perform the Segue
+        performSegue(withIdentifier: Constant.mapSegue, sender: self)
+    }
+    
+    func webButtonPressed() {
+        // Perform the Segue
+        performSegue(withIdentifier: Constant.webSegue, sender: self)
+    }
+    
+    func phoneButtonPressed() {
+        // Show the alert.
+        let alert = UIAlertController(title: "Call", message: "Do you want to continue?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Call \(school?.phone_number ?? "XXX-XXX-XXXX")", comment: "Default action"), style: .default, handler: { _ in
+            print("Call the number!!")
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
+            print("Cancel")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
 
 
 

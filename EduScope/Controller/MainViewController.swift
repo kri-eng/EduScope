@@ -15,8 +15,6 @@ class MainViewController: UIViewController {
     var schoolSATData: [SchoolSATData] = []
     var filterSchoolData: [SchoolData] = []
     
-    var dataManager = DataManager()
-    
     var currentSchoolData: SchoolData?
     var currentSchoolSATData: SchoolSATData?
     
@@ -28,7 +26,7 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
-        dataManager.delegate = self
+        // dataManager.delegate = self
         
         // Add Search Delegates and Search Bar to Navigation Item
         search.delegate = self
@@ -38,10 +36,8 @@ class MainViewController: UIViewController {
         // Set up custom TableViewCell
         tableView.register(UINib(nibName: Constant.cellNibName, bundle: nil), forCellReuseIdentifier: Constant.cellIdentifier)
         
-        // Get the Data
-        dataManager.fetchSchoolData()
-        dataManager.fetchSchoolSATData()
     }
+    
     
     // Prepares variables for segue.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,18 +107,18 @@ extension MainViewController: UITableViewDelegate {
 
 
 // MARK: - DataManagerDelegate
-extension MainViewController: DataManagerDelegate {
-    func didUpdateData(_ schoolData: [SchoolData]) {
-        self.schoolData = schoolData
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
-    func didUpdateSATData(_ schoolSATData: [SchoolSATData]) {
-        self.schoolSATData = schoolSATData
-    }
-}
+//extension MainViewController: DataManagerDelegate {
+//    func didUpdateData(_ schoolData: [SchoolData]) {
+//        self.schoolData = schoolData
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//    }
+//
+//    func didUpdateSATData(_ schoolSATData: [SchoolSATData]) {
+//        self.schoolSATData = schoolSATData
+//    }
+//}
 
 
 // MARK: - UISearchControllerDelegate

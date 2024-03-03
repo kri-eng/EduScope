@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,29 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-qk-XZP">
-                                <rect key="frame" x="106.66666666666669" y="243.66666666666666" width="180" height="364.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="PZQ-qk-XZP">
+                                <rect key="frame" x="106.66666666666669" y="233.33333333333334" width="180" height="385.66666666666663"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="quA-Ic-exZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="214.66666666666666"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="quA-Ic-exZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="265.66666666666669"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EduScope-black" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-gy-loH">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="LAI-4i-9RU"/>
-                                                    <constraint firstAttribute="width" constant="180" id="Mby-Dm-dib"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EduScope" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udW-F2-XKP">
-                                                <rect key="frame" x="0.0" y="180.00000000000003" width="180" height="34.666666666666657"/>
-                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xSE-zW-5Yb">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="214.66666666666666"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EduScope-black" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-gy-loH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="180" id="LAI-4i-9RU"/>
+                                                            <constraint firstAttribute="width" constant="180" id="Mby-Dm-dib"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EduScope" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udW-F2-XKP">
+                                                        <rect key="frame" x="0.0" y="179.99999999999997" width="180" height="34.666666666666657"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OYf-lR-ryK">
+                                                <rect key="frame" x="0.0" y="245.66666666666666" width="180" height="19.999999999999972"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eha-9V-4gd">
-                                        <rect key="frame" x="0.0" y="314.66666666666674" width="180" height="50"/>
+                                        <rect key="frame" x="0.0" y="335.66666666666663" width="180" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3dY-ah-5rg"/>
                                         </constraints>
@@ -64,10 +73,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="488-Op-AIN"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="OYf-lR-ryK" id="Obg-Zp-NET"/>
                         <outlet property="appNameLabel" destination="udW-F2-XKP" id="AWI-ut-9sa"/>
                         <outlet property="iconImage" destination="Se3-gy-loH" id="iH1-5h-KxQ"/>
                         <outlet property="searchButton" destination="Eha-9V-4gd" id="mMH-h8-pop"/>
-                        <segue destination="0MM-5A-6nJ" kind="push" identifier="introToMainSegue" id="vyu-Ln-aYA"/>
+                        <segue destination="0MM-5A-6nJ" kind="show" identifier="introToMainSegue" id="vyu-Ln-aYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -99,23 +109,23 @@
                     <navigationItem key="navigationItem" title="EduScope" id="5W8-Je-tmB"/>
                     <connections>
                         <outlet property="tableView" destination="XtX-TJ-DV8" id="4gv-cx-il4"/>
-                        <segue destination="p88-q7-8Vw" kind="presentation" identifier="mainToDetailSegue" id="GLR-fd-vwW"/>
+                        <segue destination="p88-q7-8Vw" kind="show" identifier="mainToDetailSegue" id="GLR-fd-vwW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFT-ug-Hkx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1991.6030534351144" y="-35.211267605633807"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Details-->
         <scene sceneID="D7m-2G-D1h">
             <objects>
                 <viewController id="p88-q7-8Vw" customClass="DetailsViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KrV-Dx-asd">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pNy-GN-ppf">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -128,13 +138,82 @@
                             <constraint firstAttribute="trailing" secondItem="pNy-GN-ppf" secondAttribute="trailing" id="zhG-tZ-ZCm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Details" id="q3q-Hr-qJc"/>
                     <connections>
                         <outlet property="detailsTableView" destination="pNy-GN-ppf" id="TBO-2g-jbB"/>
+                        <segue destination="LM3-NV-2Cn" kind="show" identifier="detailToMapSegue" id="fXk-Ks-dNM"/>
+                        <segue destination="9hZ-By-Glt" kind="show" identifier="detailToWebSegue" id="S4f-Ad-XwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMo-35-kLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2812.9770992366412" y="-35.211267605633807"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="2yO-4p-Cx8">
+            <objects>
+                <viewController id="9hZ-By-Glt" customClass="WebViewViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="56A-FK-L4d">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkN-f7-HPS">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VgN-0O-uNP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dkN-f7-HPS" secondAttribute="bottom" id="eri-r1-PZU"/>
+                            <constraint firstAttribute="trailing" secondItem="dkN-f7-HPS" secondAttribute="trailing" id="evm-NT-hws"/>
+                            <constraint firstItem="dkN-f7-HPS" firstAttribute="leading" secondItem="56A-FK-L4d" secondAttribute="leading" id="eyB-Ll-Ya7"/>
+                            <constraint firstItem="dkN-f7-HPS" firstAttribute="top" secondItem="VgN-0O-uNP" secondAttribute="top" id="tbP-ri-9Tp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Web" id="hxY-qc-Hk7"/>
+                    <connections>
+                        <outlet property="webView" destination="dkN-f7-HPS" id="Aof-pa-DlP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZ1-Zc-ZPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3869" y="-424"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="isH-Qo-Gb0">
+            <objects>
+                <viewController id="LM3-NV-2Cn" customClass="MapScreenViewController" customModule="EduScope" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tox-UQ-LqN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aq-KU-SVR">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HQJ-b8-zyu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6aq-KU-SVR" firstAttribute="leading" secondItem="tox-UQ-LqN" secondAttribute="leading" id="0ci-Hb-PkA"/>
+                            <constraint firstAttribute="bottom" secondItem="6aq-KU-SVR" secondAttribute="bottom" id="232-4Q-Xkh"/>
+                            <constraint firstAttribute="trailing" secondItem="6aq-KU-SVR" secondAttribute="trailing" id="AA5-Y6-yz9"/>
+                            <constraint firstItem="6aq-KU-SVR" firstAttribute="top" secondItem="HQJ-b8-zyu" secondAttribute="top" id="WNF-BO-7qD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="gM0-My-5gY"/>
+                    <connections>
+                        <outlet property="mapView" destination="6aq-KU-SVR" id="6hy-N1-UDK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G91-8F-uou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3870" y="302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Je-KM-mSl">

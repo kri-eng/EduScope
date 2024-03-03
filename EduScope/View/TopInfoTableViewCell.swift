@@ -7,19 +7,24 @@
 
 import UIKit
 
+protocol TopInfoTableViewCellDelegate {
+    func mapButtonPressed()
+    func webButtonPressed()
+    func phoneButtonPressed()
+}
+
 class TopInfoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var topInfoView: UIView!
     
-    var phoneNumber: String?
-    var websiteURL: String?
+    var delegate: TopInfoTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        topInfoView.layer.cornerRadius = 10
+        // topInfoView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,15 +34,15 @@ class TopInfoTableViewCell: UITableViewCell {
     }
     
     @IBAction func phonePressed(_ sender: UIButton) {
-        if let safePhoneNumber = phoneNumber {
-            let formatedPhoneNumber = formatPhoneNumber(phoneNumber: safePhoneNumber)
-            if let phoneCallURL = URL(string: "tel://\(formatedPhoneNumber)") {
-                let application:UIApplication = UIApplication.shared
-                if (application.canOpenURL(phoneCallURL)) {
-                    application.open(phoneCallURL, options: [:], completionHandler: nil)
-                }
-            }
-        }
+        self.delegate?.phoneButtonPressed()
+    }
+    
+    @IBAction func mapPressed(_ sender: UIButton) {
+        self.delegate?.mapButtonPressed()
+    }
+    
+    @IBAction func webPressed(_ sender: UIButton) {
+        self.delegate?.webButtonPressed()
     }
     
     // Function to format the phoneNumber

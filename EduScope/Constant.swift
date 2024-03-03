@@ -13,6 +13,8 @@ struct Constant {
     
     static let mainSegue: String = "introToMainSegue"
     static let detailsSegue: String = "mainToDetailSegue"
+    static let mapSegue: String = "detailToMapSegue"
+    static let webSegue: String = "detailToWebSegue"
     
     static let cellIdentifier: String = "reusableCell"
     static let cellNibName: String = "SchoolDataTableViewCell"

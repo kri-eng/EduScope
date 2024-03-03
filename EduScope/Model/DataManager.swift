@@ -7,22 +7,22 @@
 
 import Foundation
 
-protocol DataManagerDelegate {
-    func didUpdateData(_ schoolData: [SchoolData])
-    func didUpdateSATData(_ schoolSATData: [SchoolSATData])
-}
+//protocol DataManagerDelegate {
+//    // func didUpdateData(_ schoolData: [SchoolData])
+//    func didUpdateSATData(_ schoolSATData: [SchoolSATData])
+//}
 
 struct DataManager {
     
     // MARK: - Variable Declaration
     let schoolDataURL: String = "https://data.cityofnewyork.us/resource/s3k6-pzi2.json"
     let schoolSATDataURL: String = "https://data.cityofnewyork.us/resource/f9bf-2cp4.json"
-    var delegate: DataManagerDelegate?
+    // var delegate: DataManagerDelegate?
     
     // MARK: - School Data Retrieval
     
     // Fetches the Data.
-    func fetchSchoolData() {
+    func fetchSchoolData(completionHandler: @escaping (([SchoolData]) -> ())) {
         // Create a URL
         if let url = URL(string: schoolDataURL) {
             // Create a URL Session
@@ -38,7 +38,8 @@ struct DataManager {
                     if let safeData = data {
                         // Parse the JSON Object.
                         if let schoolData = parseJSON(schoolData: safeData) {
-                            self.delegate?.didUpdateData(schoolData)
+                            // self.delegate?.didUpdateData(schoolData)
+                            completionHandler(schoolData)
                         }
                     }
                 }
@@ -68,7 +69,7 @@ struct DataManager {
     // MARK: - School SAT Data Retrieval
     
     // Fetches the Data.
-    func fetchSchoolSATData() {
+    func fetchSchoolSATData(completionHandler: @escaping (([SchoolSATData]) -> ())) {
         // Create a URL
         if let url = URL(string: schoolSATDataURL) {
             // Create a URL Session
@@ -84,7 +85,7 @@ struct DataManager {
                     if let safeData = data {
                         // Parse the JSON Object.
                         if let schoolSATData = parseJSON(schoolSATData: safeData) {
-                            self.delegate?.didUpdateSATData(schoolSATData)
+                            completionHandler(schoolSATData)
                         }
                     }
                 }

@@ -12,18 +12,65 @@ class IntroViewController: UIViewController {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var appNameLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var serviceAPICount = 0
+    var dataManager = DataManager()
+    
+    var schoolData: [SchoolData] = []
+    var schoolSATData: [SchoolSATData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Hdie the activity Indicator.
+        activityIndicator.alpha = 0
         
         // Generate the Animation.
         generateAnimation()
     }
 
     @IBAction func searchPressed(_ sender: UIButton) {
-        // Perform the Segue
-        performSegue(withIdentifier: Constant.mainSegue, sender: self)
+        // Acitivity indicator starts and hidden to false.
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
+        
+        // Get the Data
+        dataManager.fetchSchoolData(completionHandler: { schoolData in
+            self.schoolData = schoolData
+            DispatchQueue.main.async {
+                self.serviceAPICount += 1
+                self.loadSchoolTableView()
+            }
+        })
+        dataManager.fetchSchoolSATData(completionHandler: { schoolSATData in
+            self.schoolSATData = schoolSATData
+            DispatchQueue.main.async {
+                self.serviceAPICount += 1
+                self.loadSchoolTableView()
+            }
+        })
+        
+    }
+    
+    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.mainSegue {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.schoolData = self.schoolData
+            destinationVC.schoolSATData = self.schoolSATData
+        }
+    }
+    
+    //
+    func loadSchoolTableView() {
+        if serviceAPICount == 2 {
+            activityIndicator.stopAnimating()
+            activityIndicator.alpha = 0
+            performSegue(withIdentifier: Constant.mainSegue, sender: self)
+            serviceAPICount = 0
+        }
     }
     
     // MARK: - Animation Functions

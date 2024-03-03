@@ -20,7 +20,7 @@ class WebViewViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         if let url = webURL {
-            let myURL = URL(string: url)
+            let myURL = URL(string: "https://\(url)")
             let myRequest = URLRequest(url: myURL!)
             webView.load(myRequest)
         } else {
